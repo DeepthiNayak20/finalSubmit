@@ -18,25 +18,17 @@ const SignIn = () => {
     const newArr: any[] = [];
     const userData = JSON.parse(localStorage.getItem("users") || "[]");
     userData.map((user: any) => {
-      // if (mobile === user.mobile) {
-
-      //   if (mPin === user.mPin) {
-      //     navigate("/dashBoard");
-      //   }
-
-      //  }else{
-      //   alert("enter proper values...")
-      //  }
-
       if (mobile === user.mobile && mPin === user.mPin) {
         newArr.push("exists");
       }
     });
     if (newArr.includes("exists")) {
       localStorage.setItem("currentUser", JSON.stringify([mobile]));
+      localStorage.setItem("auth", "true");
       navigate("/dashBoard");
+      window.location.reload();
     } else {
-      alert("please signUp to Login..."); 
+      alert("please signUp to Login...");
     }
   };
   return (

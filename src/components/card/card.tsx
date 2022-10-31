@@ -29,8 +29,14 @@ const Card = (props: any) => {
                     <div className="socialMediaLogo">
                       <div className="mediaLogo">
                         <img
-                          src={require("../../assets/icons/Instagram.png")}
-                          alt="icon"
+                          src={`https://app.outboundsales.io/api/logo/${user.siteName}.com`}
+                          height="50px"
+                          width="50px"
+                          alt="img"
+                          style={{
+                            backgroundPosition: "cover",
+                            borderRadius: "50%",
+                          }}
                         />
                       </div>
                       <div className="sameLine">

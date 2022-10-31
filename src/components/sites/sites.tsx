@@ -66,6 +66,7 @@ const Sites = (props: any) => {
                 alt="icon"
                 onClick={() => {
                   setModal(true);
+                  props.props = false;
                 }}
               />
             </div>

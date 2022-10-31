@@ -5,12 +5,25 @@ import Register from "./views/register/register";
 import DashBoard from "./views/dashBoard/dashBoard";
 
 function App() {
+  const authicate = localStorage.getItem("auth");
+  console.log("auth", authicate);
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route
+          path="/"
+          element={authicate === "true" ? <DashBoard /> : <Login />}
+        />{" "}
+        <Route
+          path="*"
+          element={authicate === "true" ? <DashBoard /> : <Login />}
+        />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashBoard" element={<DashBoard />} />
+        <Route
+          path="/dashBoard"
+          element={authicate === "true" ? <DashBoard /> : <Login />}
+        />
       </Routes>
     </div>
   );
