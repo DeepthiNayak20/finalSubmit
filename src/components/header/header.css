@@ -97,3 +97,14 @@
   top: 60px;
   right: 0;
 }
+
+.dropDownOptions {
+  display: flex;
+}
+
+.dropDownProfile {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 6px 8px 11px;
+}

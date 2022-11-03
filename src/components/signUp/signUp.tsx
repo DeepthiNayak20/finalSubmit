@@ -57,6 +57,7 @@ const SignUp = () => {
           previousData.push(userData);
           localStorage.setItem("users", JSON.stringify(previousData));
           localStorage.setItem(JSON.stringify(mobile), JSON.stringify([]));
+          sessionStorage.setItem("success", "true");
           navigate("/");
         } else {
           alert("enter same pins");

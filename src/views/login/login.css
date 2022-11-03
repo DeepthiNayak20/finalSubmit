@@ -20,6 +20,17 @@
     display: none;
 }
 
+.snackBar {
+    align-items: center;
+    justify-content: center;
+    top: 87px;
+    position: absolute;
+    /* top: 87px; */
+    left: 0;
+    width: 100vw;
+    display: flex;
+}
+
 
 @media only screen and (max-width: 600px) {
     .loginContainer {

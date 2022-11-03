@@ -38,13 +38,19 @@ const Header = (props: any) => {
                   </Link>
                 </div>
                 <div className="dropDownOptions">
-                  <Link to="/" className="dropDownProfile">
+                  <div
+                    className="dropDownProfile"
+                    onClick={() => {
+                      localStorage.removeItem("auth");
+                      window.location.reload();
+                    }}
+                  >
                     <div className="linkText">Sign Out</div>
                     <img
                       src={require("../../assets/icons/drop2.png")}
                       alt="icon"
                     />
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>

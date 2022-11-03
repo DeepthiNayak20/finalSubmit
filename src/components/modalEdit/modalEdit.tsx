@@ -1,32 +1,32 @@
-import '../modal/modal.css'
-import { useState } from 'react'
+import "../modal/modal.css";
+import { useState } from "react";
 
 const ModalEdit = (props: any) => {
-  const [togglePin, setTogglePin] = useState<Boolean>(false)
+  const [togglePin, setTogglePin] = useState<Boolean>(false);
   const onToggleChange = () => {
-    setTogglePin(!togglePin)
-  }
-  const [edit, setEdit] = useState(false)
-  const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]')
-  const displayData = JSON.parse(localStorage.getItem(currentUser) || '[]')
-  console.log('displayData', displayData)
+    setTogglePin(!togglePin);
+  };
+  const [edit, setEdit] = useState(false);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "[]");
+  const displayData = JSON.parse(localStorage.getItem(currentUser) || "[]");
+  console.log("displayData", displayData);
   const [value, setValue] = useState({
-    url: '',
-    siteName: '',
-    folder: '',
-    userName: '',
-    sitePassword: '',
-    notes: '',
-  })
+    url: "",
+    siteName: "",
+    folder: "",
+    userName: "",
+    sitePassword: "",
+    notes: "",
+  });
 
   const modalHandler = (e: any, i: any) => {
-    e.preventDefault()
-    const url = e.target.url.value
-    const siteName = e.target.siteName.value
-    const folder = e.target.folder.value
-    const userName = e.target.userName.value
-    const sitePassword = e.target.sitePassword.value
-    const notes = e.target.notes.value
+    e.preventDefault();
+    const url = e.target.url.value;
+    const siteName = e.target.siteName.value;
+    const folder = e.target.folder.value;
+    const userName = e.target.userName.value;
+    const sitePassword = e.target.sitePassword.value;
+    const notes = e.target.notes.value;
 
     const modalData = {
       url,
@@ -35,26 +35,26 @@ const ModalEdit = (props: any) => {
       userName,
       sitePassword,
       notes,
-    }
+    };
 
     // console.log("modalData", modalData);
 
-    displayData[i] = modalData
-    console.log('displayData[i]', displayData[i])
-    localStorage.setItem(currentUser, JSON.stringify(displayData))
-    window.location.reload()
-  }
+    displayData[i] = modalData;
+    console.log("displayData[i]", displayData[i]);
+    localStorage.setItem(currentUser, JSON.stringify(displayData));
+    window.location.reload();
+  };
   const editHandler = (e: any) => {
-    setValue(e.target.value)
-  }
+    setValue(e.target.value);
+  };
 
-  console.log('value', value)
+  console.log("value", value);
 
   return (
     <div>
       <div className="modalItem">
         <div className="addSiteModal">
-          <div className="modalText">{!edit ? 'Site Details' : 'Edit'}</div>
+          <div className="modalText">{!edit ? "Site Details" : "Edit"}</div>
         </div>
         <div className="dashBoardForm">
           <form
@@ -97,8 +97,8 @@ const ModalEdit = (props: any) => {
                   onChange={editHandler}
                   value={edit ? value.folder : displayData[props.index].folder}
                 >
-                  <option value="student">student</option>
-                  <option value="Employee">Employee</option>
+                  <option value="Social">Social Media</option>
+                  <option value="Business">Business</option>
                 </select>
               </div>
             </div>
@@ -120,7 +120,7 @@ const ModalEdit = (props: any) => {
               <div className="sitePassword">
                 <div className="classLabel">site password</div>
                 <input
-                  type={togglePin ? 'text' : 'password'}
+                  type={togglePin ? "text" : "password"}
                   className="inputStyle inputStylePadding"
                   name="sitePassword"
                   required
@@ -132,7 +132,7 @@ const ModalEdit = (props: any) => {
                   }
                 />
                 <img
-                  src={require('../../assets/icons/eye_on.png')}
+                  src={require("../../assets/icons/eye_on.png")}
                   alt="eye"
                   className="passwordEye"
                   onClick={onToggleChange}
@@ -162,24 +162,24 @@ const ModalEdit = (props: any) => {
                       Edit
                     </button>
                   ) : (
-                    ''
+                    ""
                   )}
                 </div>
               ) : (
-                ''
+                ""
               )}
 
               {edit ? (
                 <input type="submit" value="Update" className="updateButton" />
               ) : (
-                ''
+                ""
               )}
             </div>
           </form>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ModalEdit
+export default ModalEdit;
