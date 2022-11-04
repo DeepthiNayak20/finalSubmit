@@ -90,7 +90,12 @@ const Header = (props: any) => {
                 className="iconsImg"
               />
             </div>
-            <div>
+            <div
+              onClick={() => {
+                localStorage.removeItem("auth");
+                window.location.reload();
+              }}
+            >
               <img
                 src={require("../../assets/icons/profile (2).png")}
                 alt="icon"

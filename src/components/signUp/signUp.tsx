@@ -48,10 +48,10 @@ const SignUp = () => {
     });
 
     if (arr.includes("exist")) {
-      alert("user already exist");
+      alert("User already exist...");
     } else {
       if (mobile === "" && pin === "" && mPin === "") {
-        alert("enter all fields");
+        alert("Enter all fields");
       } else {
         if (pin === mPin) {
           previousData.push(userData);
@@ -60,7 +60,7 @@ const SignUp = () => {
           sessionStorage.setItem("success", "true");
           navigate("/");
         } else {
-          alert("enter same pins");
+          alert("Enter same pins");
         }
       }
     }

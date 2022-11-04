@@ -12,7 +12,7 @@ const Login = () => {
   setInterval(() => {
     sessionStorage.removeItem("success");
     setToast(Boolean(sessionStorage.getItem("success")));
-  }, 3000);
+  }, 2000);
 
   return (
     <div>

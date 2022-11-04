@@ -36,6 +36,7 @@
   position: absolute;
   top: 1.7rem;
   right: 1rem;
+  cursor: pointer;
 }
 
 .forgotPassword {

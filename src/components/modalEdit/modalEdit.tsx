@@ -10,6 +10,7 @@ const ModalEdit = (props: any) => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser") || "[]");
   const displayData = JSON.parse(localStorage.getItem(currentUser) || "[]");
   console.log("displayData", displayData);
+  const [input, setInput] = useState<any>("");
   const [value, setValue] = useState({
     url: "",
     siteName: "",
@@ -70,7 +71,7 @@ const ModalEdit = (props: any) => {
                 name="url"
                 required
                 onChange={editHandler}
-                value={edit ? value.url : displayData[props.index].url}
+                value={!edit ? displayData[props.index].url : input.url}
               />
             </div>
 
@@ -84,7 +85,7 @@ const ModalEdit = (props: any) => {
                   required
                   onChange={editHandler}
                   value={
-                    edit ? value.siteName : displayData[props.index].siteName
+                    edit ? input.siteName : displayData[props.index].siteName
                   }
                 />
               </div>
@@ -95,7 +96,7 @@ const ModalEdit = (props: any) => {
                   name="folder"
                   className="inputStyle"
                   onChange={editHandler}
-                  value={edit ? value.folder : displayData[props.index].folder}
+                  value={edit ? input.folder : displayData[props.index].folder}
                 >
                   <option value="Social">Social Media</option>
                   <option value="Business">Business</option>
@@ -112,7 +113,7 @@ const ModalEdit = (props: any) => {
                   name="userName"
                   onChange={editHandler}
                   value={
-                    edit ? value.userName : displayData[props.index].userName
+                    edit ? input.userName : displayData[props.index].userName
                   }
                 />
               </div>
@@ -127,7 +128,7 @@ const ModalEdit = (props: any) => {
                   onChange={editHandler}
                   value={
                     edit
-                      ? value.sitePassword
+                      ? input.sitePassword
                       : displayData[props.index].sitePassword
                   }
                 />
@@ -146,7 +147,7 @@ const ModalEdit = (props: any) => {
                 className="inputStyle inputStylePadding"
                 name="notes"
                 onChange={editHandler}
-                value={edit ? value.notes : displayData[props.index].notes}
+                value={edit ? input.notes : displayData[props.index].notes}
               />
             </div>
 
