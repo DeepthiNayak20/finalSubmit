@@ -10,7 +10,7 @@ const Card = (props: any) => {
   return (
     <div>
       <div className="wrapContainer">
-        {siteData
+        {props.categoryData
           .filter((ele: any) => {
             return props.search.toLowerCase() === ""
               ? ele

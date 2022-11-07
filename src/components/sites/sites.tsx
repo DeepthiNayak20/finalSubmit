@@ -9,6 +9,7 @@ const Sites = (props: any) => {
   const [edit, setEdit] = useState(false);
   const [modalEdit, setModalEdit] = useState(0);
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
 
   const childToParent = (data: any, i: any) => {
     setEdit(data);
@@ -25,6 +26,14 @@ const Sites = (props: any) => {
   useEffect(() => {
     console.log("props", window.innerWidth);
   });
+
+  console.log(category);
+
+  const categoryData = siteData.filter((ele: any) => {
+    return ele.folder.toLowerCase().includes(category.toLowerCase());
+  });
+
+  console.log("categoryData", categoryData);
 
   return (
     <div>
@@ -93,7 +102,20 @@ const Sites = (props: any) => {
           <div>
             <div className="socialMediaDesktop">
               <div className="socialMedia">
-                <div className="media">Social Media</div>
+                <div className="media">
+                  <select
+                    name="category"
+                    id=""
+                    onChange={(e) => {
+                      setCategory(e.target.value);
+                    }}
+                  >
+                    <option value="">All</option>
+                    <option value="business">Business</option>
+                    <option value="social">Social Media</option>
+                    <option value="finance">Finance</option>
+                  </select>
+                </div>
                 <div className="mediaCount">
                   {siteData.length < 10
                     ? `0${siteData.length}`
@@ -117,7 +139,11 @@ const Sites = (props: any) => {
             </div>
 
             <div className="card">
-              <Card childToParent={childToParent} search={search} />
+              <Card
+                childToParent={childToParent}
+                search={search}
+                categoryData={categoryData}
+              />
             </div>
             <div className="addButton">
               <img

@@ -62,8 +62,9 @@ const Modal = () => {
                 <div className="classLabel">select/Folder</div>
                 {/* <input type="text" className="inputStyle" name="folder" /> */}
                 <select name="folder" className="inputStyle">
-                  <option value="Social">Social Media</option>
-                  <option value="Business">Business</option>
+                  <option value="social">Social Media</option>
+                  <option value="business">Business</option>
+                  <option value="finance">Finance</option>
                 </select>
               </div>
             </div>

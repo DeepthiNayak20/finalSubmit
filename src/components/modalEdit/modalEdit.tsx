@@ -98,8 +98,9 @@ const ModalEdit = (props: any) => {
                   onChange={editHandler}
                   value={edit ? input.folder : displayData[props.index].folder}
                 >
-                  <option value="Social">Social Media</option>
-                  <option value="Business">Business</option>
+                  <option value="social">Social Media</option>
+                  <option value="business">Business</option>
+                  <option value="finance">Finance</option>
                 </select>
               </div>
             </div>
